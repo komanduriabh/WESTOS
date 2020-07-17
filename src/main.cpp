@@ -1,11 +1,5 @@
 #include "main.h"
 #include "gdlib/util/display/ImageButton.h"
-/**
- * A callback function for LLEMU's center button.
- *
- * When this callback is fired, it will toggle line 2 of the LCD text between
- * "I was pressed!" and nothing.
- */
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -13,10 +7,29 @@
  * All other competition modes are blocked by initialize; it is recommended
  * to keep execution time for this mode under a few seconds.
  */
+
+ static lv_res_t btn_click_action(lv_obj_t * btn)
+{
+	uint8_t id = lv_obj_get_free_num(btn);
+	printf("Button %d is released\n", id);
+	/* The button is released.
+	* Make something here */
+	return LV_RES_OK; /*Return OK if the button is not deleted*/
+}
 void initialize() {
-	lv_obj_t * btnOne;
-	LV_IMG_DECLARE(settings)
-	ImageButton* ib = new ImageButton(btnOne, LV_ALIGN_CENTER, &settings, 0, -40, "HLOL");
+	lv_obj_t * settingsButton;		//Basic initialization for image and button
+	LV_IMG_DECLARE(settings);
+
+
+	static lv_style_t style_screen;							//Vex Theme Init
+  	style_screen.body.main_color = LV_COLOR_MAKE(0,0,0);
+  	lv_obj_set_style(lv_scr_act(), &style_screen);
+	// lv_theme_t *th = lv_theme_alien_init(10, NULL);
+
+	lv_obj_t*win;
+	//Settings Button
+	ImageButton* settingsIcon = new ImageButton(settingsButton, LV_ALIGN_IN_TOP_LEFT, &settings, 25, 50, "Settings", btn_click_action);
+
 }
 
 /**

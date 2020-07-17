@@ -1,17 +1,10 @@
-#pragma once
 #include "display/lvgl.h"
-#ifndef IMAGEBUTTON_H
-#define IMAGEBUTTON_H
+
 class ImageButton {
 private:
     lv_obj_t * imgbtn;
-    lv_align_t align;
-    const void *src;
-    lv_coord_t x_ofs;
-    lv_coord_t y_ofs;
-    const char *text;
-
+    static int freeNumber;
 public:
-    ImageButton( lv_obj_t * imgbtn, lv_align_t align, const void *src, lv_coord_t x_ofs, lv_coord_t y_ofs, const char *text);
+ 
+    ImageButton( lv_obj_t * imgbtn, lv_align_t align, const void *src, lv_coord_t x_ofs, lv_coord_t y_ofs, const char *text, lv_action_t action);
 };
-#endif
