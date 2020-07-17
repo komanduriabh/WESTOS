@@ -21,10 +21,8 @@ void initialize() {
 	LV_IMG_DECLARE(settings);
 
 
-	static lv_style_t style_screen;							//Vex Theme Init
-  	style_screen.body.main_color = LV_COLOR_MAKE(0,0,0);
-  	lv_obj_set_style(lv_scr_act(), &style_screen);
-	// lv_theme_t *th = lv_theme_alien_init(10, NULL);
+
+	 lv_theme_t *th = lv_theme_alien_init(10, NULL);
 
 	lv_obj_t*win;
 	//Settings Button
