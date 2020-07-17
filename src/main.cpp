@@ -1,33 +1,36 @@
 #include "main.h"
 #include "gdlib/util/display/ImageButton.h"
 
-/**
- * Runs initialization code. This occurs as soon as the program is started.
- *
- * All other competition modes are blocked by initialize; it is recommended
- * to keep execution time for this mode under a few seconds.
- */
-
+//Global Screen Variables
+//-----------------------------------------------//
+lv_obj_t * Home = lv_obj_create(NULL, NULL);
+lv_obj_t * settingsScreen = lv_obj_create(NULL, NULL);
+//-----------------------------------------------//
+ 
  static lv_res_t btn_click_action(lv_obj_t * btn)
 {
 	uint8_t id = lv_obj_get_free_num(btn);
 	printf("Button %d is released\n", id);
-	/* The button is released.
-	* Make something here */
+	lv_scr_load(settingsScreen);
+	return LV_RES_OK; /*Return OK if the button is not deleted*/
+}
+ static lv_res_t btn_click_action_one(lv_obj_t * btn)
+{
+	uint8_t id = lv_obj_get_free_num(btn);
+	printf("Button %d is released\n", id);
+	lv_scr_load(Home);
 	return LV_RES_OK; /*Return OK if the button is not deleted*/
 }
 void initialize() {
+	lv_scr_load(Home);
 	lv_obj_t * settingsButton;		//Basic initialization for image and button
+	
 	LV_IMG_DECLARE(settings);
-
-
-
 	 lv_theme_t *th = lv_theme_alien_init(10, NULL);
 
-	lv_obj_t*win;
 	//Settings Button
-	ImageButton* settingsIcon = new ImageButton(settingsButton, LV_ALIGN_IN_TOP_LEFT, &settings, 25, 50, "Settings", btn_click_action);
-
+	ImageButton* settingsIcon = new ImageButton(settingsButton, LV_ALIGN_IN_TOP_LEFT, &settings, 25, 50, "Settings", btn_click_action, Home);
+	ImageButton* two = new ImageButton(settingsButton, LV_ALIGN_IN_TOP_LEFT, &settings, 55, 50, "Settings", btn_click_action_one, settingsScreen);
 }
 
 /**

@@ -3,9 +3,9 @@
 
 int ImageButton::freeNumber = 0;
 
-ImageButton::ImageButton( lv_obj_t * imgbtn, lv_align_t align, const void *src, lv_coord_t x_ofs, lv_coord_t y_ofs, const char *text, lv_action_t action){
+ImageButton::ImageButton( lv_obj_t * imgbtn, lv_align_t align, const void *src, lv_coord_t x_ofs, lv_coord_t y_ofs, const char *text, lv_action_t action, lv_obj_t *par){
 
-    imgbtn = lv_btn_create(lv_scr_act(), NULL);
+    imgbtn = lv_btn_create(par, NULL);
     lv_btn_set_fit(imgbtn, true, true);
     lv_btn_set_style(imgbtn, LV_BTN_STYLE_REL, &lv_style_transp_tight);
     lv_btn_set_style(imgbtn, LV_BTN_STYLE_PR, &lv_style_transp_tight);
