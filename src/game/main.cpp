@@ -8,13 +8,18 @@
 
 void initialize() {
 	//Basic Init
-	lv_scr_load(Home);
+	lv_scr_load(lockScreen);
 	LV_IMG_DECLARE(settings);
 	LV_IMG_DECLARE(files);
 	LV_IMG_DECLARE(profile);
 	LV_IMG_DECLARE(controller);
 	LV_IMG_DECLARE(auton);
 	LV_IMG_DECLARE(debug);
+
+	//Load WEST Operating System Button
+	Button* osLoadButton = new Button(LV_ALIGN_IN_TOP_LEFT, -175, 0, 470, 50, "Boot WESTOS", osAction, lockScreen);
+	//Load Competition Operating System Button
+	Button* compLoadButton = new Button(LV_ALIGN_IN_TOP_LEFT, -175, 0, 470, 50, "Boot COMPOS", osAction, lockScreen);
 
 	//Settings Button
 	ImageButton* settingsIcon = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &settings, 25, 25, "Settings", settingsAction, Home);
@@ -29,7 +34,7 @@ void initialize() {
 	//Debugging Icon
 	ImageButton* debugIcon = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &debug, 325, 125, "Debugging", filesAction, Home);
 
-
+	//Enable Theme Toggling
 	Button* theme = new Button(LV_ALIGN_IN_TOP_LEFT, -175, -75, 470, 50, "Theme", changeTheme, settingsScreen);
 }
 

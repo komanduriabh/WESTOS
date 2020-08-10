@@ -2,11 +2,23 @@
 #include "main.h"
 #pragma once
 //-----------------------------------------------//
+lv_obj_t * lockScreen = lv_obj_create(NULL, NULL);
+lv_obj_t * compScreen = lv_obj_create(NULL, NULL);
 lv_obj_t * Home = lv_obj_create(NULL, NULL);
 lv_obj_t * settingsScreen = lv_obj_create(NULL, NULL);
 lv_obj_t * filesScreen = lv_obj_create(NULL, NULL);
 //-----------------------------------------------//
 
+static lv_res_t osAction(lv_obj_t * btn)
+{
+	lv_scr_load(lockScreen);
+	return LV_RES_OK; /*Return OK if the button is not deleted*/
+}
+static lv_res_t compAction(lv_obj_t * btn)
+{
+	lv_scr_load(compScreen);
+	return LV_RES_OK; /*Return OK if the button is not deleted*/
+}
 static lv_res_t settingsAction(lv_obj_t * btn)
 {
 	lv_scr_load(settingsScreen);
