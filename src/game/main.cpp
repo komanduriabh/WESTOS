@@ -26,16 +26,18 @@ void initialize() {
 	//Files System
 	ImageButton* filesIcon = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &files, 175, 25, "Files", filesAction, Home);
 	//Profile
-	ImageButton* profileIcon = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &profile, 325, 25, "Profile", filesAction, Home);
+	ImageButton* debugIcon = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &debug, 325, 25, "Debugging", filesAction, Home);
 	//Controller Config Button
 	ImageButton* controllerIcon = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &controller, 25, 125, "Controller Configuration", settingsAction, Home);
 	//Auton Button
 	ImageButton* autonIcon = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &auton, 175, 125, "Autonomous", filesAction, Home);
 	//Debugging Icon
 	ImageButton* debugIcon = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &debug, 325, 125, "Debugging", filesAction, Home);
-
+	//Exit
+	ImageButton* exit = new ImageButton(LV_ALIGN_IN_TOP_LEFT, &debug, 325, 125, "Debugging", exitAction, Home);
 	//Enable Theme Toggling
 	Button* theme = new Button(LV_ALIGN_IN_TOP_LEFT, -175, -75, 470, 50, "Theme", changeTheme, settingsScreen);
+
 }
 
 
